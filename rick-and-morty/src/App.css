@@ -5,3 +5,110 @@
   align-items: center;
   text-align: center;
 }
+body{
+  background-color: lightblue;
+}
+header{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: skyblue;
+}
+header nav{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: right;
+  font-size: 15pt;
+  
+}
+
+.main-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.character-box{
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+.characters-home{
+  width: 70%;
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: left;
+  grid-column-gap: 50px;
+}
+.location-home{
+  width: 70%;
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: left;
+  grid-column-gap: 50px;
+}
+.episode-home{
+  width: 70%;
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: left;
+  grid-column-gap: 50px;
+}
+.card-location{
+  border: 1px solid black;
+  padding: 30px;
+  width: 300px;
+  height: 175px;
+  margin: 10px 0px;
+}
+.card-episode{
+  border: 1px solid black;
+  padding: 30px;
+  width: 275px;
+  height: 150px;
+  margin: 10px 0px;
+}
+.card{
+  width: 70%;
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  grid-column-gap: 50px;
+  margin: auto;
+}
+.card-character{
+  width: 70%;
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  grid-column-gap: 50px;
+  margin: auto;
+}
+.character-page{
+  padding-top: 50px;
+  height: 620px;
+  background-color: cornflowerblue;
+}
+.character-page h1{
+  padding: 5px 0px;
+}
+.img-api img{
+  cursor: pointer;
+}
+.character-status{
+  background-color: greenyellow;
+}
+.character-alive{
+  background-color: greenyellow;
+}
+.character-dead{
+  background-color: lightcoral;
+}

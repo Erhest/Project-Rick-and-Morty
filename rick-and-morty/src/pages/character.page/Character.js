@@ -21,11 +21,11 @@ const Character = () => {
     }, [])
     
   return (
-    <section>
+    <section className='character-page'>
+        <h1>{character.name}</h1>
         <div key={character.id}>
-            <img src={character.image} alt={character.name} />
-            <h2 >{character.name}</h2>
-            <p>Status: {character.status}</p>
+            <img src={character.image} alt={character.name} />            
+            <p>Status: {character.status ? 'O ' + character.status : 'X' + character.status}</p>
             <p>Gender: {character.gender}</p>
             <p>Species: {character.species}</p>
             <p>Origin: {character?.origin?.name}</p>

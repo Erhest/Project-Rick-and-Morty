@@ -8,29 +8,28 @@ const Characters = () => {
     const [next, setNext] = useState('')
 
     useEffect(() => {
-        const http = async () => {
-            try{
-                const response = await fetch(`${url}/character`)
-                const data = await response.json()
-                console.log(data)
-                setCharacter(data.results)
-                setNext(data.next)
-                setPrevious(data.previous)
-            }catch(error){
-                console.log('Error: ' + error.message)
-            }
-        }
-        http()
+        httpRequest(`${url}/character`)
         }, [])
 
     const button = (type) => {
         type === 0
             ?
-            http(previous)
+            httpRequest(previous)
             :
-            http(next)     
+            httpRequest(next)     
     }
-
+    const httpRequest = async (url) => {
+        try{
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data)
+            setCharacter(data.results)
+            setNext(data.next)
+            setPrevious(data.previous)
+        }catch(error){
+            console.log('Error: ' + error.message)
+        }
+    }
 
     return (
         <main>
@@ -57,6 +56,6 @@ const Characters = () => {
             </section>
         </main>
     )
-            }
+}
 
 export default Characters
