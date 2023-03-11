@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Todos os direitos a mim</div>
+    <footer>Todos os direitos ao próprio</footer>
   )
 }
 

@@ -4,7 +4,7 @@ import Card from '../../components/Card'
 const Characters = () => {
     const url = 'https://rickandmortyapi.com/api'
     const [character, setCharacter] = useState([])
-    const [previous, setPrevious] = useState('')
+    const [prev, setPrev] = useState('')
     const [next, setNext] = useState('')
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const Characters = () => {
     const button = (type) => {
         type === 0
             ?
-            httpRequest(previous)
+            httpRequest(prev)
             :
             httpRequest(next)     
     }
@@ -24,8 +24,8 @@ const Characters = () => {
             const data = await response.json()
             console.log(data)
             setCharacter(data.results)
-            setNext(data.next)
-            setPrevious(data.previous)
+            setNext(data.info.next)
+            setPrev(data.info.prev)
         }catch(error){
             console.log('Error: ' + error.message)
         }
@@ -42,16 +42,16 @@ const Characters = () => {
             </div>     
             <section className='page-buttons'>
                 {
-                    previous && <button onClick={() => button(0)}>⬅️</button>
+                    prev && <button onClick={() => button(0)}>PREVIOUS</button>
                 }
                 {
-                    !previous && <button disabled>⬅️</button>
+                    !prev && <button disabled>PREVIOUS</button>
                 }
                 {
-                    next && <button onClick={() => button(1)}>➡️</button>
+                    next && <button onClick={() => button(1)}>NEXT</button>
                 }
                 {
-                    !next && <button disabled>➡️</button>
+                    !next && <button disabled>NEXT</button>
                 }
             </section>
         </main>

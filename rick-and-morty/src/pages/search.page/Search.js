@@ -17,23 +17,24 @@ const Search = () => {
                 // Characters
                 let response = await fetch(`${url}/character`)
                 let data = await response.json()
-                const array = data.filter((item) => item?.name.toLowerCase().includes(search?.toLocaleLowerCase()))
+                const results = data.results
+                const array = results.filter((item) => item?.name.toLowerCase().includes(search?.toLocaleLowerCase()))
                 console.log(array)
-                setCharacters([...array])
+                setCharacters(array)
                 
                 // episode
                 response = await fetch(`${url}/episode`)
                 data = await response.json()
-                const arrayEpisodes = data.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
+                const arrayEpisodes = results.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
                 console.log(arrayEpisodes)
-                setEpisode([...arrayEpisodes])
+                setEpisode(arrayEpisodes)
 
                 //Location
                 response = await fetch(`${url}/location`)
                 data = await response.json()
-                const arrayLocation = data.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
+                const arrayLocation = results.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
                 console.log(arrayLocation)
-                setLocation([...arrayLocation])
+                setLocation(arrayLocation)
             }catch(error){
                 console.log(error.message)
             }}

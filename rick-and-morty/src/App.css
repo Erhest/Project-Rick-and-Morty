@@ -5,37 +5,55 @@
   align-items: center;
   text-align: center;
 }
+
 body{
   background-color: lightblue;
 }
+
 header{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-around;
   height: 100px;
   width: 100%;
   background-color: skyblue;
 }
+
+header h3{
+  font-size: 20pt;
+  font-family: cursive;
+}
+
 header nav{
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: right;
   font-size: 15pt;
-  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+header nav a:hover{
+  color: cyan;
+  transition: ease-in-out 0.5s;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
 .main-div{
   display: flex;
   flex-direction: column;
 }
 
 .character-box{
-  border: 2px solid black;
-  border-radius: 5px;
+  background-color: rgb(214, 218, 27);
+  border-radius: 10px;
   margin: 5px 0px;
 }
+
 .characters-home{
   width: 70%;
   display: grid;
@@ -44,6 +62,7 @@ header nav{
   text-align: left;
   grid-column-gap: 50px;
 }
+
 .location-home{
   width: 70%;
   display: grid;
@@ -52,6 +71,7 @@ header nav{
   text-align: left;
   grid-column-gap: 50px;
 }
+
 .episode-home{
   width: 70%;
   display: grid;
@@ -60,20 +80,25 @@ header nav{
   text-align: left;
   grid-column-gap: 50px;
 }
+
 .card-location{
-  border: 1px solid black;
+  border-radius: 10px;
   padding: 30px;
   width: 300px;
   height: 175px;
   margin: 10px 0px;
+  background-color: darkkhaki;
 }
+
 .card-episode{
-  border: 1px solid black;
+  border-radius: 10px;
   padding: 30px;
   width: 275px;
   height: 150px;
   margin: 10px 0px;
+  background-color: darksalmon;
 }
+
 .card{
   width: 70%;
   display: grid;
@@ -83,6 +108,7 @@ header nav{
   grid-column-gap: 50px;
   margin: auto;
 }
+
 .card-character{
   width: 70%;
   display: grid;
@@ -92,23 +118,35 @@ header nav{
   grid-column-gap: 50px;
   margin: auto;
 }
+
 .character-page{
   padding-top: 50px;
   height: 620px;
   background-color: cornflowerblue;
 }
+
 .character-page h1{
   padding: 5px 0px;
 }
+
 .img-api img{
   cursor: pointer;
 }
+
 .character-status{
-  background-color: greenyellow;
+  background-color: rgb(73, 226, 73);
 }
+
 .character-alive{
-  background-color: greenyellow;
+  background-color: rgb(73, 226, 73);
 }
+
 .character-dead{
   background-color: lightcoral;
+}
+
+footer{
+  padding: 20px;
+  background-color: chocolate;
+  margin: 10px 0px 0px 0px;
 }

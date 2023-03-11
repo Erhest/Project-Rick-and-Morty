@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = () => {
-  const [pesquisar, setPesquisar] = useState()
+  const [pesquisar, setPesquisar] = useState('')
   const navigate = useNavigate()
   
   const search = () => {
@@ -14,8 +14,7 @@ const Header = () => {
 
   return (
     <header>
-        <img src="" alt="" />
-        
+        <h3>Rick and Morty</h3>        
         <div className="search">
           <input type="search" 
           onChange={(e) => setPesquisar(e.target.value)} 
