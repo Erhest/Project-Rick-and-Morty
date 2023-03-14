@@ -7,7 +7,7 @@ const Home = () => {
     const url = 'https://rickandmortyapi.com/api'
     const [character, setCharacter] = useState([])
     const [location, setLocation] = useState([])
-    const [episode, setEpisode] = useState([])
+    const [episode, setEpisode] = useState([])    
     
     useEffect(() =>{
       const request = async () =>{
@@ -18,6 +18,24 @@ const Home = () => {
       request()
     }, [])
 
+    function generateRandom() {
+      let randomNumbers = []
+      for (let i = 0; i < 3; i++) {
+        const min = 0
+        const max = 5
+        const randomNum = Math.floor(Math.random() * (max - min) + min)
+        if (randomNumbers.includes(randomNum)) {
+          continue
+        }else{
+          randomNumbers.push(randomNum)
+        }
+    }      
+      return (randomNumbers)
+    }      
+    generateRandom()
+
+    console.log('RandOM fora da Funtion  ' + generateRandom())
+
     const httpRequest = async (url) => {
       try{
         const response = await fetch(url)
@@ -27,6 +45,7 @@ const Home = () => {
         console.log('Error: ' + error.message)
       }
     }
+
 
   return (
     <div className='main-div'>
@@ -55,7 +74,7 @@ const Home = () => {
               <CardEpisode key={item.id} episode={item} />
             ))
           }   
-      </div>
+      </div>s
   </div>
   )
 }

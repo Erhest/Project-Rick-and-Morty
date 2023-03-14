@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Footer = () => {
+  const now = new Date()
   return (
-    <footer>Todos os direitos ao próprio</footer>
+    <footer>Kenji Hashimoto {now.getFullYear()}</footer>
   )
 }
 

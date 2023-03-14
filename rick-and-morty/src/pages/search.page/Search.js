@@ -5,8 +5,8 @@ import CardLocation from '../../components/CardLocation'
 import CardEpisode from '../../components/CardEpisode'
 
 const Search = () => {
-    const {search} = useParams()
     const url = 'https://rickandmortyapi.com/api'
+    const {search} = useParams()
     const [characters, setCharacters] = useState([])
     const [episode, setEpisode] = useState([])
     const [location, setLocation] = useState([])
@@ -19,21 +19,23 @@ const Search = () => {
                 let data = await response.json()
                 const results = data.results
                 const array = results.filter((item) => item?.name.toLowerCase().includes(search?.toLocaleLowerCase()))
-                console.log(array)
+                // console.log(array)
                 setCharacters(array)
                 
                 // episode
                 response = await fetch(`${url}/episode`)
                 data = await response.json()
-                const arrayEpisodes = results.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
-                console.log(arrayEpisodes)
+                const resultsEpisode = data.results
+                const arrayEpisodes = resultsEpisode.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
+                // console.log(arrayEpisodes)
                 setEpisode(arrayEpisodes)
 
                 //Location
                 response = await fetch(`${url}/location`)
                 data = await response.json()
-                const arrayLocation = results.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
-                console.log(arrayLocation)
+                const resultsLocation = data.results
+                const arrayLocation = resultsLocation.filter((item) => item?.name.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
+                // console.log(arrayLocation)
                 setLocation(arrayLocation)
             }catch(error){
                 console.log(error.message)
@@ -57,40 +59,42 @@ const Search = () => {
                         }
                     </div>
                 :
-                    <p className="list-notfound">Opss, 404 Not Found ;(</p>
+                    <p className="list-notfound">Error, 404 Not Found ;(</p>
             }
             
         </div>
+
         <h3>Location</h3>
-        <div className='location'>
+        <div className='location-home'>
             {
                 location.length > 0
                 ?
                     <div className="card-location">
                         {
-                            location.map((item, i) => (
-                                <CardLocation key={item.id} location={item} i={i+1} />
+                            location.map((item) => (
+                                <CardLocation key={item.id} location={item} />
                             ))
                         }
                     </div>
                 :
-                    <p className="list-notfound">Opss, 404 Not Found</p>
+                    <p className="list-notfound">Error, 404 Not Found</p>
             }
         </div>
+
         <h3>Episode</h3>
-        <div className='episode'>
+        <div className='episode-home'>
             {
                 episode.length > 0
                 ?
                     <div className="card-episode">
                         {
-                            episode.map((item, i) => (
-                                <CardEpisode key={item.id} episode={item} i={i+1} />
+                            episode.map((item) => (
+                                <CardEpisode key={item.id} episode={item} />
                             ))
                         }
                     </div>
                 :
-                    <p className="list-notfound">Opss, 404 Not Found</p>
+                    <p className="list-notfound">Error, 404 Not Found</p>
             }
         </div>
     </div>
