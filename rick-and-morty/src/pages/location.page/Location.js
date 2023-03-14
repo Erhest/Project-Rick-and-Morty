@@ -33,7 +33,7 @@ const Location = () => {
     }
 
     return (
-        <div>
+        <div className='pages-div'>
             <div className='card'>
                 {
                     location.map((item) => (

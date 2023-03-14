@@ -7,45 +7,38 @@ const Home = () => {
     const url = 'https://rickandmortyapi.com/api'
     const [character, setCharacter] = useState([])
     const [location, setLocation] = useState([])
-    const [episode, setEpisode] = useState([])    
+    const [episode, setEpisode] = useState([''])    
+
+    function generateRandom(max) {
+      const min = 1
+      let randomNumbers = []
+      while(randomNumbers.length < 3){
+        const randomNum = Math.floor(Math.random() * (max - min) + min)
+        if(!randomNumbers.includes(randomNum))
+          randomNumbers.push(randomNum)
+      }      
+      return randomNumbers.sort()
+    }
+  
     
     useEffect(() =>{
       const request = async () =>{
-        setCharacter(await httpRequest(`${url}/character`))
-        setLocation(await httpRequest(`${url}/location`))
-        setEpisode(await httpRequest(`${url}/episode`))
+        setCharacter(await httpRequest(`${url}/character/${generateRandom(826).toString()}`))
+        setLocation(await httpRequest(`${url}/location/${generateRandom(126).toString()}`))
+        setEpisode(await httpRequest(`${url}/episode/${generateRandom(51)}`))
       }
       request()
     }, [])
-
-    function generateRandom() {
-      let randomNumbers = []
-      for (let i = 0; i < 3; i++) {
-        const min = 0
-        const max = 5
-        const randomNum = Math.floor(Math.random() * (max - min) + min)
-        if (randomNumbers.includes(randomNum)) {
-          continue
-        }else{
-          randomNumbers.push(randomNum)
-        }
-    }      
-      return (randomNumbers)
-    }      
-    generateRandom()
-
-    console.log('RandOM fora da Funtion  ' + generateRandom())
 
     const httpRequest = async (url) => {
       try{
         const response = await fetch(url)
         const data = await response.json()
-        return data.results
+        return data
       }catch(error){
         console.log('Error: ' + error.message)
       }
     }
-
 
   return (
     <div className='main-div'>
@@ -74,7 +67,7 @@ const Home = () => {
               <CardEpisode key={item.id} episode={item} />
             ))
           }   
-      </div>s
+      </div>
   </div>
   )
 }

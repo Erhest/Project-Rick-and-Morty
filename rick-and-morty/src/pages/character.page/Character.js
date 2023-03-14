@@ -27,7 +27,7 @@ const Character = () => {
         <div key={character.id}>
             <img src={character.image} alt={character.name} />       
             <br />
-            <span style={{backgroundColor: character.status === 'unknown' ? 'aqua' : character.status === 'Alive' ? 'rgb(73, 226, 73)' : 'pink'}}>Status: {character.status}</span>
+            <span style={{backgroundColor: character.status === 'unknown' ? 'aqua' : character.status === 'Alive' ? 'rgb(73, 226, 73)' : 'red'}}>Status: {character.status}</span>
             <p>Gender: {character.gender}</p>
             <p>Species: {character.species}</p>
             <p>Origin: {character?.origin?.name}</p>

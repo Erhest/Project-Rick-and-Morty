@@ -32,7 +32,7 @@ const Characters = () => {
     }
 
     return (
-        <main>
+        <main className='pages-div'>
             <div className='card-character'>
                 {
                     character.map((item) => (

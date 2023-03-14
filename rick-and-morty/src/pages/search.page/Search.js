@@ -44,7 +44,7 @@ const Search = () => {
     }, [search])
 
   return (
-    <div className='search'>
+    <div className='search-page'>
         <h2>{search}</h2>
         <h3>Characters</h3>
         <div className='characters'>
@@ -65,34 +65,34 @@ const Search = () => {
         </div>
 
         <h3>Location</h3>
-        <div className='location-home'>
+        <div className='location-search'>
             {
                 location.length > 0
                 ?
-                    <div className="card-location">
-                        {
-                            location.map((item) => (
-                                <CardLocation key={item.id} location={item} />
-                            ))
-                        }
-                    </div>
+                <div className='card'>
+                    {
+                        location.map((item) => (
+                            <CardLocation key={item.id} location={item} />
+                        ))
+                    }    
+                </div>
                 :
                     <p className="list-notfound">Error, 404 Not Found</p>
             }
         </div>
 
         <h3>Episode</h3>
-        <div className='episode-home'>
+        <div className='episode-search'>
             {
                 episode.length > 0
                 ?
-                    <div className="card-episode">
-                        {
-                            episode.map((item) => (
-                                <CardEpisode key={item.id} episode={item} />
-                            ))
-                        }
-                    </div>
+                <div className='card'>
+                    {
+                        episode.map((item) => (
+                            <CardEpisode key={item.id} episode={item} />
+                        ))
+                    }    
+                </div>
                 :
                     <p className="list-notfound">Error, 404 Not Found</p>
             }

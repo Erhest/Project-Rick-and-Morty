@@ -33,7 +33,7 @@ const Episode = () => {
 
 
     return (
-        <div>
+        <div className='pages-div'>
             <div className='card'>
                 {
                     episode.map((item) => (
